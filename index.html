@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+Hiển thị n số nguyên tố đầu tiên
+<br><br>
+Nhập n: <input type="number" id="n" min="0">
+<br><br>
+<button onclick="print()">In</button>
+<p id="result">Kết quả: </p>
+<script>
+
+    function print() {
+
+        document.getElementById('result').textContent = 'Kết quả: ';
+
+        let count = 0;
+
+        let N = 2;
+
+        let soLuong = +document.getElementById('n').value;
+
+        while (count < soLuong) {
+
+            check = false;
+
+            for (let i = 2; i < N; i++) {
+                if (N % i == 0) {
+                    check = true;
+                }
+            }
+            if (!check) {
+                document.getElementById('result').textContent += (N + ', ');
+                count++;
+            }
+            N++;
+        }
+        document.getElementById('result').textContent = document.getElementById('result').textContent.slice(0, -2);
+        document.getElementById('result').textContent += '.';
+    }
+
+</script>
+</body>
+</html>
